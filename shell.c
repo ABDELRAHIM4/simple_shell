@@ -1,12 +1,8 @@
 #include "main.h"
 /**
  * replace_space - replace spaces with null characters in a given string
- * run_command - make another process by fork() and run the command
- * Return 0: if pid = 0
- * Return -1:if pid = -1
- * else : wait
- * @command: input from user
- **/
+*@command: input from user
+*/
 void replace_space(char *command)
 {
 char *ptr;
@@ -16,6 +12,11 @@ if (*ptr == ' ')
 *ptr = '\0';
 }
 }
+/**
+ * run_command - gets input
+ *@command: input from user
+ *Return: the input
+*/
 void run_command(char *command)
 {
 pid_t pid = fork();

@@ -1,8 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
-/*
- *main - display the command and execute the input
+/**
+ *main - entry point
  *@command: input from user
+ * Return: 0 on success, 1 on error
  */
 
 #include <stdio.h>
