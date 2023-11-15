@@ -21,6 +21,10 @@ void run_command(char *command)
 {
 pid_t pid = fork();
 int i = 0;
+if (strcmp(command, "exit") == 0)
+{
+exit(0);
+}
 if (pid == -1)
 {
 perror("./shell");
