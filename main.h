@@ -31,7 +31,10 @@ if (l != -1)
 command[strcspn(command, "\n")] = '\0';
 run_command(command);
 }
+else
+{
 return (0);
+}
 }
 return (0);
 }
