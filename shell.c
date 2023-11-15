@@ -1,7 +1,10 @@
 #include "main.h"
 /**
  * replace_space - replace spaces with null characters in a given string
- * run_command - run the command
+ * run_command - make another process by fork() and run the command
+ * Return 0: if pid = 0
+ * Return -1:if pid = -1
+ * else : wait
  * @command: input from user
  **/
 void replace_space(char *command)
