@@ -1,24 +1,22 @@
 #include "main.h"
 /**
- * simple_shell - reads string from user.
- * @command: character
- * @n: size of string
- * Return: string
- */
-int  simple_shell()
+ * replace_space - replace spaces with null characters in a given string
+ * run_command - run the command
+ * @command: input from user
+ **/
+void replace_space(char *command)
 {
-ssize_t l, val;
-char *command = NULL;
-size_t n;
-pid_t pid;
-while (1)
+char *ptr;
+for (ptr = command; *ptr != '\0'; ptr++)
 {
-write(1, "$", 1);
-l = getline(&command, &n, stdin);
-if (l != -1)
+if (*ptr == ' ')
+*ptr = '\0';
+}
+}
+void run_command(char *command)
 {
-command[strcspn(command, "\n")] = '\0';
-pid = fork();
+pid_t pid = fork();
+int i = 0;
 if (pid == -1)
 {
 perror("./shell");
@@ -26,20 +24,21 @@ exit(1);
 }
 else if (pid == 0)
 {
-val = execlp(command, command, (char *)NULL);
-if (val  == -1)
+char *token, *args[4];
+token = strtok(command, " ");
+while (token != NULL)
+{
+args[i++] = token;
+token = strtok(NULL, " ");
+}
+args[i] = NULL;
+replace_space(command);
+if (execvp(args[0], args) == -1)
+{
 perror("./shell");
-return (0);
-}
-else
-{
-wait(NULL);
+exit(1);
 }
 }
 else
-{
-break;
-}
-}
-return (0);
+	wait(NULL);
 }
