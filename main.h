@@ -36,6 +36,8 @@ else
 {
 return (0);
 }
+free(command);
+l = 0;
 }
 return (0);
 }
