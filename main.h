@@ -38,6 +38,7 @@ return (0);
 }
 free(command);
 l = 0;
+n = 0;
 }
 return (0);
 }
