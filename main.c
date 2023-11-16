@@ -27,6 +27,7 @@ free(command);
 
 return (0);
 }
+free(command);
 l = 0;
 n = 0;
 }

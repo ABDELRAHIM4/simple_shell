@@ -10,7 +10,6 @@
 
 void replace_space(char *command);
 void run_command(char *command);
-void envi(char **environ);
 int shell(void);
 
 #endif
