@@ -7,7 +7,7 @@
 
 int main(void)
 {
-char *command;
+char *command = calloc(1, sizeof(char));
 size_t n = 0;
 ssize_t l;
 while (1)
