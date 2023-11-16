@@ -20,7 +20,6 @@ if (*ptr == ' ')
 void run_command(char *command)
 {
 pid_t pid = fork();
-int i = 0;
 if (strcmp(command, "exit") == 0)
 {
 exit(0);
@@ -32,6 +31,7 @@ exit(1);
 }
 else if (pid == 0)
 {
+int i = 0;
 char *token, *args[4];
 token = strtok(command, " ");
 while (token != NULL)
@@ -40,6 +40,7 @@ args[i++] = token;
 token = strtok(NULL, " ");
 }
 args[i] = NULL;
+
 replace_space(command);
 if (execvp(args[0], args) == -1)
 {
@@ -48,5 +49,6 @@ exit(1);
 }
 }
 else
-	wait(NULL);
+wait(NULL);
 }
+

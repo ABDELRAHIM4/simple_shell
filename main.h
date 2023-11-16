@@ -11,5 +11,5 @@
 void replace_space(char *command);
 void run_command(char *command);
 int shell(void);
-char *getcar(void);
+void change_directory(char *directory);
 #endif
